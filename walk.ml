@@ -13,14 +13,70 @@ let fileToString fname =
         newString;
 ;;
 
+let catWalk firstCat secondCat thirdCat =
+        Sys.command "clear";
+        print_endline secondCat; 
+        flush stdout;
+        Unix.sleepf(0.5);
 
+        Sys.command "clear";
+        print_endline firstCat; 
+        flush stdout;
+        Unix.sleepf(0.5);
 
-let cat_files = ["cat.txt"; "cat0.txt"];;
+        Sys.command "clear";
+        print_endline thirdCat; 
+        flush stdout;
+        Unix.sleepf(0.5);
+
+        Sys.command "clear";
+        print_endline firstCat; 
+        flush stdout;
+        Unix.sleepf(0.5);
+
+;;
+
+let catBlink firstCat secondCat = 
+        Sys.command "clear";
+        print_endline firstCat; 
+        flush stdout;
+        Unix.sleepf(0.5);
+
+        Sys.command "clear";
+        print_endline secondCat; 
+        flush stdout;
+        Unix.sleepf(0.5);
+
+        Sys.command "clear";
+        print_endline firstCat; 
+        flush stdout;
+        Unix.sleepf(0.5);
+;;
+
+let catStand cat =
+        Sys.command "clear";
+        print_endline cat; 
+        flush stdout;
+        Unix.sleep(1);
+;;
+
+let blink_files = ["cat.txt"; "cat0.txt"] in
+let walk_files = ["cat1.txt"; "cat2.txt"; "cat3.txt"] in
+
 
 let firstCat = fileToString "cats/cat1.txt" in
 let secondCat = fileToString "cats/cat2.txt" in
 let thirdCat= fileToString "cats/cat3.txt" in
+let fourthCat= fileToString "cats/cat.txt" in
+let fifthCat= fileToString "cats/cat0.txt" in
 while true; do
+        Random.self_init ();
+        match Random.int 3 with
+        0 -> catWalk firstCat secondCat thirdCat;
+        | 1 -> catBlink fourthCat fifthCat;
+        | 2 -> catStand firstCat;
+done;
+        (*
         Sys.command "clear";
         print_endline firstCat; 
         flush stdout;
@@ -42,4 +98,4 @@ while true; do
         Unix.sleepf(0.5);
 done;
 
-
+*)
