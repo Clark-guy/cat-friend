@@ -45,12 +45,22 @@ let catBlink firstCat secondCat =
         Sys.command "clear";
         print_endline secondCat; 
         flush stdout;
-        Unix.sleepf(0.5);
+        Unix.sleepf(0.2);
 
         Sys.command "clear";
         print_endline firstCat; 
         flush stdout;
-        Unix.sleepf(0.5);
+        Unix.sleep(2);
+
+        Sys.command "clear";
+        print_endline secondCat; 
+        flush stdout;
+        Unix.sleepf(0.2);
+
+        Sys.command "clear";
+        print_endline firstCat; 
+        flush stdout;
+        Unix.sleep(2);
 ;;
 
 let catStand cat =
@@ -70,32 +80,10 @@ let thirdCat= fileToString "cats/cat3.txt" in
 let fourthCat= fileToString "cats/cat.txt" in
 let fifthCat= fileToString "cats/cat0.txt" in
 while true; do
+
         Random.self_init ();
         match Random.int 3 with
         0 -> catWalk firstCat secondCat thirdCat;
         | 1 -> catBlink fourthCat fifthCat;
         | 2 -> catStand firstCat;
 done;
-        (*
-        Sys.command "clear";
-        print_endline firstCat; 
-        flush stdout;
-        Unix.sleepf(0.5);
-
-        Sys.command "clear";
-        print_endline secondCat; 
-        flush stdout;
-        Unix.sleepf(0.5);
-
-        Sys.command "clear";
-        print_endline firstCat; 
-        flush stdout;
-        Unix.sleepf(0.5);
-
-        Sys.command "clear";
-        print_endline thirdCat; 
-        flush stdout;
-        Unix.sleepf(0.5);
-done;
-
-*)
