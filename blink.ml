@@ -17,8 +17,8 @@ let fileToString fname =
 
 let cat_files = ["cat.txt"; "cat0.txt"];;
 
-let firstCat = fileToString "cats/cat.txt" in
-let secondCat = fileToString "cats/cat0.txt" in
+let firstCat = fileToString "cats/cat6.txt" in
+let secondCat = fileToString "cats/cat7.txt" in
 while true; do
         Sys.command "clear";
         print_endline firstCat; 
